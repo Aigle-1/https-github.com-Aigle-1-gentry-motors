@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gentry Motors – Luxury | Prestige | Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --dark-2: #1A1A1A;
+    --dark-3: #222222;
+    --silver: #C0C0C0;
+    --white: #F5F5F5;
+    --text-muted: #888888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; height: 80px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 100%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    transition: all 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(0,0,0,0.98);
+    border-bottom-color: rgba(201,168,76,0.3);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo img { height: 52px; width: 52px; object-fit: contain; }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .nav-logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: 4px; color: var(--white); }
+  .nav-logo-text .sub { font-size: 9px; letter-spacing: 3px; color: var(--gold); margin-top: 3px; }
+  .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+  .nav-links a { color: rgba(245,245,245,0.75); text-decoration: none; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: transparent; border: 1px solid var(--gold); color: var(--gold);
+    padding: 10px 28px; font-family: 'Montserrat', sans-serif; font-size: 10px;
+    letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative; height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 60% 50%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      linear-gradient(135deg, #0A0A0A 0%, #111111 50%, #0A0A0A 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+  .hero-car-silhouette {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 50%; 
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+  }
+  .hero-line-left {
+    position: absolute; left: 60px; top: 50%; transform: translateY(-50%);
+    width: 1px; height: 200px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    animation: lineGrow 2s ease-out forwards;
+  }
+  .hero-line-right {
+    position: absolute; right: 60px; top: 50%; transform: translateY(-50%);
+    width: 1px; height: 200px;
+    background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    animation: lineGrow 2s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  @keyframes lineGrow { from { opacity: 0; height: 0; } to { opacity: 1; height: 200px; } }
+
+  .hero-content {
+    position: relative; text-align: center; max-width: 900px; padding: 0 20px;
+    animation: heroFade 1.2s ease-out forwards;
+  }
+  @keyframes heroFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 16px;
+    font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.6;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 9vw, 120px);
+    font-weight: 300; line-height: 0.9;
+    letter-spacing: -2px; margin-bottom: 8px;
+    background: linear-gradient(135deg, #F5F5F5 30%, #C9A84C 60%, #F5F5F5 80%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-title span {
+    display: block; font-size: clamp(32px, 4vw, 52px); font-weight: 400;
+    letter-spacing: 12px; margin-top: 4px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-tagline {
+    font-size: 11px; letter-spacing: 3px; color: var(--text-muted);
+    text-transform: uppercase; margin: 28px 0 48px;
+  }
+  .hero-ctas { display: flex; gap: 20px; justify-content: center; align-items: center; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border: none; color: var(--black); padding: 18px 48px;
+    font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase; cursor: pointer; text-decoration: none;
+    display: inline-block; transition: all 0.3s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.35); }
+  .btn-secondary {
+    background: transparent; border: 1px solid rgba(245,245,245,0.3); color: var(--white);
+    padding: 17px 48px; font-family: 'Montserrat', sans-serif; font-size: 10px;
+    letter-spacing: 3px; text-transform: uppercase; cursor: pointer; text-decoration: none;
+    display: inline-block; transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 60px; align-items: center;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300;
+    color: var(--gold); display: block; line-height: 1;
+  }
+  .hero-stat-label { font-size: 9px; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-top: 6px; }
+  .hero-stat-divider { width: 1px; height: 48px; background: rgba(201,168,76,0.2); }
+
+  /* ─── MARQUEE ─── */
+  .marquee-wrap {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+    padding: 14px 0; overflow: hidden;
+  }
+  .marquee-track {
+    display: flex; gap: 60px; animation: marquee 25s linear infinite; width: max-content;
+  }
+  .marquee-item { font-size: 10px; letter-spacing: 4px; color: var(--black); font-weight: 600; text-transform: uppercase; white-space: nowrap; }
+  .marquee-dot { font-size: 16px; color: rgba(0,0,0,0.3); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 60px; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 9px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .section-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+  h2.section-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 64px);
+    font-weight: 300; line-height: 1.1; margin-bottom: 20px; color: var(--white);
+  }
+  h2.section-title em { font-style: italic; color: var(--gold); }
+  .section-desc { font-size: 13px; line-height: 1.9; color: var(--text-muted); max-width: 520px; }
+
+  /* ─── BRAND INTRO ─── */
+  .brand-intro { background: var(--dark); }
+  .brand-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1300px; margin: 0 auto; }
+  .brand-intro-visual {
+    position: relative; aspect-ratio: 4/5; background: var(--dark-2);
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .brand-intro-visual::before {
+    content: ''; position: absolute; top: -1px; left: 40px; right: 40px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .brand-intro-visual::after {
+    content: ''; position: absolute; bottom: -1px; left: 40px; right: 40px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .brand-emblem-large {
+    width: 260px; height: 260px; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .brand-emblem-large::before {
+    content: ''; position: absolute; inset: 0; border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 50%; animation: rotateSlow 20s linear infinite;
+  }
+  .brand-emblem-large::after {
+    content: ''; position: absolute; inset: 20px; border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 50%; animation: rotateSlow 15s linear infinite reverse;
+  }
+  @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .brand-emblem-large img { width: 160px; height: 160px; object-fit: contain; position: relative; z-index: 1; }
+  .brand-corner { position: absolute; width: 30px; height: 30px; }
+  .brand-corner.tl { top: 20px; left: 20px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+  .brand-corner.tr { top: 20px; right: 20px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+  .brand-corner.bl { bottom: 20px; left: 20px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+  .brand-corner.br { bottom: 20px; right: 20px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+  .brand-intro-content { padding: 20px 0; }
+  .gentry-definition {
+    background: rgba(201,168,76,0.05); border-left: 2px solid var(--gold);
+    padding: 24px 28px; margin: 32px 0;
+  }
+  .gentry-definition p { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; line-height: 1.7; color: var(--silver); font-style: italic; }
+  .brand-values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .brand-value-tag {
+    border: 1px solid rgba(201,168,76,0.3); padding: 8px 20px;
+    font-size: 9px; letter-spacing: 2.5px; color: var(--gold); text-transform: uppercase;
+  }
+
+  /* ─── FLEET ─── */
+  #fleet { background: var(--black); }
+  .fleet-header { display: flex; justify-content: space-between; align-items: flex-end; max-width: 1300px; margin: 0 auto 60px; }
+  .fleet-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn {
+    background: transparent; border: 1px solid rgba(245,245,245,0.12); color: var(--text-muted);
+    padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-size: 9px;
+    letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s;
+  }
+  .filter-btn.active, .filter-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.06); }
+
+  .cars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1300px; margin: 0 auto; }
+  .car-card {
+    position: relative; background: var(--dark-2); overflow: hidden;
+    cursor: pointer; transition: all 0.4s; aspect-ratio: 4/3;
+    display: none;
+  }
+  .car-card.visible { display: block; }
+  .car-card:hover .car-overlay { opacity: 1; }
+  .car-card:hover .car-img { transform: scale(1.06); }
+  .car-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease; filter: brightness(0.85) contrast(1.05);
+  }
+  .car-overlay {
+    position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s;
+    background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 30px;
+  }
+  .car-overlay-show {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;
+  }
+  .car-badge {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(201,168,76,0.9); color: var(--black);
+    font-size: 8px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase;
+    padding: 5px 12px;
+  }
+  .car-category-tag {
+    font-size: 8px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px;
+  }
+  .car-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+  .car-year { font-size: 9px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 12px; }
+  .car-price-row { display: flex; align-items: baseline; gap: 8px; }
+  .car-price { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--gold); }
+  .car-price-unit { font-size: 10px; color: var(--text-muted); }
+  .car-specs-row { display: flex; gap: 16px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .car-spec { font-size: 9px; letter-spacing: 1px; color: rgba(245,245,245,0.5); }
+  .car-book-btn {
+    margin-top: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border: none; color: var(--black); padding: 12px 0; width: 100%;
+    font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; text-decoration: none;
+    display: block; text-align: center; transition: opacity 0.3s;
+  }
+  .car-book-btn:hover { opacity: 0.85; }
+
+  /* large card */
+  .car-card.large { grid-column: span 2; }
+  .car-card.large .car-name { font-size: 30px; }
+  .car-card.large .car-price { font-size: 36px; }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--dark); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; max-width: 1300px; margin: 60px auto 0; }
+  .service-card {
+    background: var(--dark-2); padding: 48px 36px; position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .service-card:hover { background: var(--dark-3); }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon {
+    width: 52px; height: 52px; border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 28px; transition: border-color 0.3s;
+  }
+  .service-card:hover .service-icon { border-color: var(--gold); }
+  .service-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--white); margin-bottom: 14px; }
+  .service-desc { font-size: 12px; line-height: 1.8; color: var(--text-muted); margin-bottom: 24px; }
+  .service-price { font-size: 10px; letter-spacing: 1px; color: var(--gold); }
+
+  /* ─── WHY GENTRY ─── */
+  #why { background: var(--black); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; max-width: 1300px; margin: 60px auto 0; }
+  .why-item {
+    background: var(--dark-2); padding: 48px; display: flex; gap: 28px; align-items: flex-start;
+    transition: background 0.3s;
+  }
+  .why-item:hover { background: var(--dark-3); }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300;
+    color: rgba(201,168,76,0.15); line-height: 1; flex-shrink: 0; margin-top: -8px;
+  }
+  .why-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 12px; }
+  .why-content p { font-size: 12px; line-height: 1.8; color: var(--text-muted); }
+
+  /* ─── BOOKING PROCESS ─── */
+  #booking { background: var(--dark); }
+  .booking-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; max-width: 1300px; margin: 60px auto 0; }
+  .booking-step { background: var(--dark-2); padding: 40px 28px; position: relative; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300;
+    color: rgba(201,168,76,0.1); line-height: 1; display: block; margin-bottom: 16px;
+  }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--white); margin-bottom: 10px; }
+  .step-desc { font-size: 11px; line-height: 1.8; color: var(--text-muted); }
+  .step-arrow {
+    position: absolute; top: 40px; right: -12px; width: 24px; height: 24px;
+    background: var(--gold); display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--black); z-index: 1;
+  }
+  .booking-step:last-child .step-arrow { display: none; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--black); }
+  .contact-wrap { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .contact-info { display: flex; flex-direction: column; gap: 32px; }
+  .contact-item { display: flex; gap: 20px; align-items: flex-start; }
+  .contact-icon {
+    width: 44px; height: 44px; border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0; color: var(--gold);
+  }
+  .contact-item-title { font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .contact-item-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--white); }
+  .contact-item-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-label { font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .form-input, .form-select, .form-textarea {
+    background: var(--dark-2); border: 1px solid rgba(245,245,245,0.1);
+    color: var(--white); padding: 14px 18px; font-family: 'Montserrat', sans-serif;
+    font-size: 12px; outline: none; transition: border-color 0.3s; width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-select { appearance: none; cursor: pointer; }
+  .form-textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border: none; color: var(--black); padding: 18px;
+    font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .form-submit:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials { background: var(--dark); padding: 80px 60px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1300px; margin: 60px auto 0; }
+  .testimonial-card { background: var(--dark-2); padding: 36px; }
+  .stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; }
+  .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; line-height: 1.6; color: var(--silver); font-style: italic; margin-bottom: 24px; }
+  .testimonial-author { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .testimonial-role { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark); border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 60px; 
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; max-width: 1300px; margin: 0 auto 60px; }
+  .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+  .footer-logo { display: flex; align-items: center; gap: 12px; }
+  .footer-logo img { height: 44px; width: 44px; object-fit: contain; }
+  .footer-logo-text .brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; letter-spacing: 4px; color: var(--white); }
+  .footer-logo-text .sub { font-size: 8px; letter-spacing: 3px; color: var(--gold); }
+  .footer-desc { font-size: 11px; line-height: 1.8; color: var(--text-muted); }
+  .footer-col-title { font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 12px; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1300px; margin: 0 auto; padding-top: 32px;
+    border-top: 1px solid rgba(245,245,245,0.06);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom-text { font-size: 11px; color: var(--text-muted); }
+  .footer-dividers { display: flex; gap: 20px; font-size: 11px; color: var(--text-muted); }
+
+  /* ─── WHATSAPP ─── */
+  .whatsapp-float {
+    position: fixed; bottom: 32px; right: 32px; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    text-decoration: none; box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    transition: all 0.3s; animation: pulse 3s infinite;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); } 50% { box-shadow: 0 8px 50px rgba(37,211,102,0.7); } }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 30px; }
+    section { padding: 70px 30px; }
+    .cars-grid { grid-template-columns: repeat(2, 1fr); }
+    .car-card.large { grid-column: span 1; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .booking-steps { grid-template-columns: repeat(2, 1fr); }
+    .contact-wrap { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .brand-intro-grid { grid-template-columns: 1fr; }
+    .brand-intro-visual { max-height: 400px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+    nav .nav-links { display: none; }
+    .fleet-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+  }
+  @media (max-width: 640px) {
+    .cars-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .booking-steps { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; }
+    section { padding: 60px 20px; }
+    nav { padding: 0 20px; }
+    .step-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="https://i.imgur.com/placeholder.png" alt="Gentry Motors" 
+         onerror="this.style.display='none'; this.nextElementSibling.querySelector('.brand-g').style.display='flex'">
+    <div class="nav-logo-text">
+      <span class="brand">GENTRY</span>
+      <span class="sub">Motors · UAE</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#fleet">Our Fleet</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Gentry</a></li>
+    <li><a href="#booking">How to Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/971500000000" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-line-left"></div>
+  <div class="hero-line-right"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Dubai, UAE · Premium Automotive</div>
+    <h1 class="hero-title">
+      GENTRY
+      <span>MOTORS</span>
+    </h1>
+    <p class="hero-tagline">Driven by Prestige. Defined by Excellence.</p>
+    <div class="hero-ctas">
+      <a href="#fleet" class="btn-primary">Explore Our Fleet</a>
+      <a href="#contact" class="btn-secondary">Request VIP Service</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">50+</span>
+      <div class="hero-stat-label">Luxury Vehicles</div>
+    </div>
+    <div class="hero-stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">24/7</span>
+      <div class="hero-stat-label">VIP Concierge</div>
+    </div>
+    <div class="hero-stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">60'</span>
+      <div class="hero-stat-label">UAE Delivery</div>
+    </div>
+    <div class="hero-stat-divider"></div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">100%</span>
+      <div class="hero-stat-label">Insured Fleet</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Lamborghini</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Ferrari</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Rolls-Royce</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Bentley</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">McLaren</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Mercedes-Maybach</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Range Rover</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Porsche</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">BMW</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Aston Martin</span><span class="marquee-dot">◆</span>
+    <!-- repeat for seamless loop -->
+    <span class="marquee-item">Lamborghini</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Ferrari</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Rolls-Royce</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Bentley</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">McLaren</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Mercedes-Maybach</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Range Rover</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Porsche</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">BMW</span><span class="marquee-dot">◆</span>
+    <span class="marquee-item">Aston Martin</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<!-- BRAND INTRO -->
+<section class="brand-intro" id="about">
+  <div class="brand-intro-grid">
+    <div class="brand-intro-visual">
+      <div class="brand-corner tl"></div>
+      <div class="brand-corner tr"></div>
+      <div class="brand-corner bl"></div>
+      <div class="brand-corner br"></div>
+      <div class="brand-emblem-large">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Lamborghini_logo.svg/1200px-Lamborghini_logo.svg.png" 
+             alt="Gentry Motors"
+             style="filter: invert(1) sepia(1) saturate(2) hue-rotate(10deg); opacity:0.15; width:220px;">
+        <!-- Gold GM monogram placeholder -->
+        <svg viewBox="0 0 160 160" style="position:absolute;width:140px;height:140px;">
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#E8C97A"/>
+              <stop offset="50%" style="stop-color:#C9A84C"/>
+              <stop offset="100%" style="stop-color:#8B6914"/>
+            </linearGradient>
+          </defs>
+          <!-- Shield shape -->
+          <path d="M80 10 L130 35 L130 90 Q130 135 80 155 Q30 135 30 90 L30 35 Z" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+          <!-- G letterform -->
+          <path d="M65 55 Q45 55 45 80 Q45 105 65 105 Q85 105 85 90 L85 82 L70 82 L70 90" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+          <!-- M letterform -->
+          <path d="M90 55 L90 105 M90 55 L108 80 L126 55 M126 55 L126 105" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="brand-intro-content">
+      <div class="section-label">About Gentry Motors</div>
+      <h2 class="section-title">What Does<br><em>Gentry</em> Mean?</h2>
+      <div class="gentry-definition">
+        <p>"Gentry traditionally refers to people of high social standing, refinement, class, influence, and prestige. For our brand, Gentry represents a premium automotive and mobility company dedicated to delivering luxury, excellence, prestige, comfort, and exceptional customer experiences."</p>
+      </div>
+      <p class="section-desc">Gentry Motors is not a car rental company. We are a luxury mobility and automotive lifestyle brand serving executives, entrepreneurs, VIP clients, and high-net-worth individuals across the UAE. Every vehicle in our fleet is curated for those who demand nothing less than extraordinary.</p>
+      <div class="brand-values">
+        <span class="brand-value-tag">Prestige</span>
+        <span class="brand-value-tag">Trust</span>
+        <span class="brand-value-tag">Excellence</span>
+        <span class="brand-value-tag">Professionalism</span>
+        <span class="brand-value-tag">Comfort</span>
+        <span class="brand-value-tag">Reliability</span>
+        <span class="brand-value-tag">Luxury Experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section id="fleet">
+  <div class="fleet-header">
+    <div>
+      <div class="section-label">Curated Collection</div>
+      <h2 class="section-title">Our <em>Exclusive</em> Fleet</h2>
+    </div>
+    <div class="fleet-filters">
+      <button class="filter-btn active" onclick="filterCars('all', this)">All</button>
+      <button class="filter-btn" onclick="filterCars('exotic', this)">Exotic & Supercar</button>
+      <button class="filter-btn" onclick="filterCars('suv', this)">Executive SUV</button>
+      <button class="filter-btn" onclick="filterCars('sedan', this)">Luxury Sedan</button>
+      <button class="filter-btn" onclick="filterCars('convertible', this)">Convertible</button>
+    </div>
+  </div>
+
+  <div class="cars-grid">
+
+    <!-- EXOTIC -->
+    <div class="car-card large visible" data-cat="exotic">
+      <img class="car-img" src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80" alt="Lamborghini Huracán EVO">
+      <div class="car-badge">Most Popular</div>
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Exotic Supercar</div>
+        <div class="car-name">Lamborghini Huracán EVO</div>
+        <div class="car-year">2024 Model · 640 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,800</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Exotic Supercar</div>
+        <div class="car-name">Lamborghini Huracán EVO</div>
+        <div class="car-year">2024 Model · 640 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,800</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">0–100: 2.9s</span>
+          <span class="car-spec">V10 Engine</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Lamborghini Huracán EVO" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="car-card visible" data-cat="exotic">
+      <img class="car-img" src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=600&q=80" alt="Ferrari F8 Tributo">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Exotic Supercar</div>
+        <div class="car-name">Ferrari F8 Tributo</div>
+        <div class="car-year">2024 Model · 710 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 3,200</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Exotic Supercar</div>
+        <div class="car-name">Ferrari F8 Tributo</div>
+        <div class="car-year">2024 Model · 710 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 3,200</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">0–100: 2.9s</span>
+          <span class="car-spec">V8 Twin-Turbo</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Ferrari F8 Tributo" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="car-card visible" data-cat="exotic">
+      <img class="car-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="McLaren 720S">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Exotic Supercar</div>
+        <div class="car-name">McLaren 720S</div>
+        <div class="car-year">2024 Model · 720 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Exotic Supercar</div>
+        <div class="car-name">McLaren 720S</div>
+        <div class="car-year">2024 Model · 720 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">0–100: 2.8s</span>
+          <span class="car-spec">V8 Bi-Turbo</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the McLaren 720S" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <!-- LUXURY/ULTRA LUXURY -->
+    <div class="car-card visible" data-cat="sedan">
+      <img class="car-img" src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=600&q=80" alt="Rolls-Royce Ghost">
+      <div class="car-badge">Flagship</div>
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Ultra Luxury Sedan</div>
+        <div class="car-name">Rolls-Royce Ghost</div>
+        <div class="car-year">2024 Model · Bespoke</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 4,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Ultra Luxury Sedan</div>
+        <div class="car-name">Rolls-Royce Ghost</div>
+        <div class="car-year">2024 Model</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 4,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">V12 Engine</span>
+          <span class="car-spec">Starlight Interior</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Rolls-Royce Ghost" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="car-card large visible" data-cat="sedan">
+      <img class="car-img" src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800&q=80" alt="Mercedes-Maybach S680">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Executive Sedan</div>
+        <div class="car-name">Mercedes-Maybach S680</div>
+        <div class="car-year">2024 Model · V12 Biturbo</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 3,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Executive Sedan</div>
+        <div class="car-name">Mercedes-Maybach S680</div>
+        <div class="car-year">2024 Model · V12 Biturbo</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 3,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">Chauffeur Class</span>
+          <span class="car-spec">Reclining Rear Seats</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Mercedes-Maybach S680" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <!-- SUV -->
+    <div class="car-card visible" data-cat="suv">
+      <img class="car-img" src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80" alt="Range Rover Autobiography">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Executive SUV</div>
+        <div class="car-name">Range Rover Autobiography</div>
+        <div class="car-year">2024 Model · LWB</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,200</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Executive SUV</div>
+        <div class="car-name">Range Rover Autobiography</div>
+        <div class="car-year">2024 Long Wheelbase</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,200</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">7 Seats</span>
+          <span class="car-spec">P530 V8</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Range Rover Autobiography" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="car-card large visible" data-cat="suv">
+      <img class="car-img" src="https://images.unsplash.com/photo-1571987502227-9231b837d92a?w=800&q=80" alt="Lamborghini Urus">
+      <div class="car-badge">Best Seller</div>
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Super SUV</div>
+        <div class="car-name">Lamborghini Urus S</div>
+        <div class="car-year">2024 Model · 666 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,900</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Super SUV</div>
+        <div class="car-name">Lamborghini Urus S</div>
+        <div class="car-year">2024 Model · 666 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,900</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">0–100: 3.5s</span>
+          <span class="car-spec">Twin-Turbo V8</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Lamborghini Urus S" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="car-card visible" data-cat="suv">
+      <img class="car-img" src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&q=80" alt="Mercedes-AMG G63">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Executive SUV</div>
+        <div class="car-name">Mercedes-AMG G63</div>
+        <div class="car-year">2024 Model · 585 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 1,800</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Executive SUV</div>
+        <div class="car-name">Mercedes-AMG G63</div>
+        <div class="car-year">2024 Model · 585 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 1,800</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">0–100: 4.5s</span>
+          <span class="car-spec">V8 Biturbo</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Mercedes-AMG G63" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <!-- CONVERTIBLES -->
+    <div class="car-card visible" data-cat="convertible">
+      <img class="car-img" src="https://images.unsplash.com/photo-1547744152-14d985cb937f?w=600&q=80" alt="Ferrari Portofino M Spider">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Exotic Convertible</div>
+        <div class="car-name">Ferrari Portofino M</div>
+        <div class="car-year">2024 Model · Retractable Top</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,400</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Exotic Convertible</div>
+        <div class="car-name">Ferrari Portofino M</div>
+        <div class="car-year">2024 Model · Spider</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,400</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">620 HP</span>
+          <span class="car-spec">V8 Twin-Turbo</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Ferrari Portofino M" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="car-card large visible" data-cat="convertible">
+      <img class="car-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Rolls-Royce Dawn">
+      <div class="car-badge">Iconic</div>
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Ultra Luxury Convertible</div>
+        <div class="car-name">Rolls-Royce Dawn</div>
+        <div class="car-year">2024 Model · Drophead Coupé</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 5,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Ultra Luxury Convertible</div>
+        <div class="car-name">Rolls-Royce Dawn</div>
+        <div class="car-year">2024 Model</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 5,500</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">V12 Engine</span>
+          <span class="car-spec">Soft-Top Convertible</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Rolls-Royce Dawn" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <!-- MORE SEDANS -->
+    <div class="car-card visible" data-cat="sedan">
+      <img class="car-img" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="Bentley Flying Spur">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Luxury Sedan</div>
+        <div class="car-name">Bentley Flying Spur</div>
+        <div class="car-year">2024 Model · W12</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 3,800</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Luxury Sedan</div>
+        <div class="car-name">Bentley Flying Spur</div>
+        <div class="car-year">2024 Model · W12</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 3,800</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">626 HP</span>
+          <span class="car-spec">W12 Engine</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Bentley Flying Spur" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="car-card visible" data-cat="exotic">
+      <img class="car-img" src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=600&q=80" alt="Porsche 911 Turbo S">
+      <div class="car-overlay-show">
+        <div class="car-category-tag">Sports Car</div>
+        <div class="car-name">Porsche 911 Turbo S</div>
+        <div class="car-year">2024 Model · 650 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,000</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+      </div>
+      <div class="car-overlay">
+        <div class="car-category-tag">Sports Car</div>
+        <div class="car-name">Porsche 911 Turbo S</div>
+        <div class="car-year">2024 Model · 650 HP</div>
+        <div class="car-price-row">
+          <span class="car-price">AED 2,000</span>
+          <span class="car-price-unit">/ day</span>
+        </div>
+        <div class="car-specs-row">
+          <span class="car-spec">0–100: 2.7s</span>
+          <span class="car-spec">Flat-6 Turbo</span>
+          <span class="car-spec">250km/day</span>
+        </div>
+        <a href="https://wa.me/971500000000?text=I'd like to book the Porsche 911 Turbo S" class="car-book-btn">Reserve Now</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:40px;">
+    <a href="https://wa.me/971500000000?text=I'd like to see the full Gentry Motors fleet" class="btn-primary">View Full Fleet →</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">Premium Offerings</div>
+  <h2 class="section-title">Bespoke <em>Services</em></h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✈</div>
+      <div class="service-title">Airport VIP Transfers</div>
+      <div class="service-desc">Meet & greet service at Dubai International, Abu Dhabi, and all UAE airports. Your dedicated chauffeur awaits with seamless, door-to-door luxury transfer.</div>
+      <div class="service-price">From AED 800 · All UAE Airports</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👤</div>
+      <div class="service-title">Professional Chauffeur</div>
+      <div class="service-desc">Discreet, professionally trained chauffeurs available 24/7. Ideal for corporate executives, diplomatic events, and high-profile occasions requiring utmost professionalism.</div>
+      <div class="service-price">From AED 500 · Per Day</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💼</div>
+      <div class="service-title">Corporate Fleet Solutions</div>
+      <div class="service-desc">Dedicated fleet management for businesses. Monthly contracts, priority booking, and dedicated account managers for corporate clients requiring ongoing luxury mobility.</div>
+      <div class="service-price">Custom Pricing · Monthly Plans</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎉</div>
+      <div class="service-title">Event & Wedding Cars</div>
+      <div class="service-desc">Make your special occasion unforgettable. From lavish weddings to milestone celebrations, our fleet creates a backdrop worthy of life's most prestigious moments.</div>
+      <div class="service-price">Custom Packages Available</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌟</div>
+      <div class="service-title">Supercar Experience</div>
+      <div class="service-desc">Feel the raw power of a Lamborghini, Ferrari, or McLaren with our curated supercar experience packages. Ideal for gifting, celebrations, and automotive enthusiasts.</div>
+      <div class="service-price">From AED 1,500 · Half Day</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <div class="service-title">VIP Concierge</div>
+      <div class="service-desc">End-to-end luxury lifestyle coordination. From restaurant reservations to yacht charters and private jets — your Gentry concierge handles every detail with discretion.</div>
+      <div class="service-price">24/7 · White-Glove Service</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY GENTRY -->
+<section id="why">
+  <div style="max-width:1300px; margin:0 auto;">
+    <div class="section-label">Our Commitment</div>
+    <h2 class="section-title">Why Choose <em>Gentry</em></h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-content">
+          <h3>Curated Luxury Fleet</h3>
+          <p>Every vehicle in our collection is hand-selected, meticulously maintained, and representing the absolute pinnacle of automotive engineering. No compromise. No exceptions.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-content">
+          <h3>60-Minute UAE Delivery</h3>
+          <p>Your chosen vehicle delivered directly to your hotel, residence, or office anywhere across the UAE within 60 minutes. Luxury comes to you — not the other way around.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-content">
+          <h3>Fully Comprehensive Insurance</h3>
+          <p>All Gentry Motors vehicles include full comprehensive insurance coverage. Drive with complete confidence and total peace of mind — no hidden clauses, no surprises.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-content">
+          <h3>24/7 VIP Support</h3>
+          <p>Our dedicated concierge team is available around the clock via WhatsApp and phone. Real people, real solutions, available any time you need us.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">05</div>
+        <div class="why-content">
+          <h3>Transparent Pricing</h3>
+          <p>What you see is what you pay. No hidden fees, no unexpected charges. Our pricing is clear, honest, and reflective of the premium experience we deliver.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">06</div>
+        <div class="why-content">
+          <h3>Flexible Rental Terms</h3>
+          <p>Daily, weekly, or monthly — our rental packages are designed around your lifestyle. Long-term clients enjoy exclusive VIP rates and priority fleet access.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials">
+  <div style="max-width:1300px; margin: 0 auto;">
+    <div class="section-label">Client Experiences</div>
+    <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"Gentry Motors delivered my Lamborghini Huracán directly to my hotel within 45 minutes. The vehicle was immaculate, the service was flawless. This is what true luxury feels like."</div>
+        <div class="testimonial-author">Ahmed Al Mansouri</div>
+        <div class="testimonial-role">Business Executive · Dubai</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"We used Gentry Motors for our wedding — a Rolls-Royce Ghost for the bride and a Ferrari for the groom. The experience was beyond anything we could have imagined. Absolute perfection."</div>
+        <div class="testimonial-author">Sophie & James Richardson</div>
+        <div class="testimonial-role">Wedding Clients · United Kingdom</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"As a corporate client with monthly rentals, Gentry's attention to detail and consistency is unmatched. My team always arrives in style. Highly recommend their corporate fleet solutions."</div>
+        <div class="testimonial-author">Khalid Al-Rashidi</div>
+        <div class="testimonial-role">CEO · Abu Dhabi</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING PROCESS -->
+<section id="booking" style="background: var(--black);">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">Book in <em>Minutes</em></h2>
+  <div class="booking-steps">
+    <div class="booking-step">
+      <span class="step-num">01</span>
+      <div class="step-title">Choose Your Vehicle</div>
+      <div class="step-desc">Browse our curated fleet online or contact our concierge team for a personalized recommendation tailored to your needs and occasion.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="booking-step">
+      <span class="step-num">02</span>
+      <div class="step-title">Contact via WhatsApp</div>
+      <div class="step-desc">Message our VIP team on WhatsApp with your selected vehicle, rental dates, and delivery location. Instant response guaranteed within minutes.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="booking-step">
+      <span class="step-num">03</span>
+      <div class="step-title">Confirm & Reserve</div>
+      <div class="step-desc">Receive your personalized quote, confirm your booking, and complete the reservation with a simple document submission and secure payment.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="booking-step">
+      <span class="step-num">04</span>
+      <div class="step-title">Your Car is Delivered</div>
+      <div class="step-desc">Sit back as we deliver your selected vehicle directly to your chosen location across the UAE — within 60 minutes of confirmation.</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:48px;">
+    <a href="https://wa.me/971500000000" class="btn-primary">Start Booking on WhatsApp</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2 class="section-title">Reserve Your <em>Experience</em></h2>
+  <div class="contact-wrap">
+    <div>
+      <p class="section-desc" style="margin-bottom:48px;">Our VIP concierge team is ready to assist you 24/7. Whether you need a specific vehicle, a bespoke service package, or have a special request — we are here to exceed your expectations.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-item-title">WhatsApp & Phone</div>
+            <div class="contact-item-value">+971 50 000 0000</div>
+            <div class="contact-item-sub">Available 24 hours · 7 days a week</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div class="contact-item-title">Email</div>
+            <div class="contact-item-value">vip@gentrymotors.ae</div>
+            <div class="contact-item-sub">bookings@gentrymotors.ae · info@gentrymotors.ae</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <div class="contact-item-title">Website</div>
+            <div class="contact-item-value">gentrymotors.ae</div>
+            <div class="contact-item-sub">Dubai, United Arab Emirates</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🚗</div>
+          <div>
+            <div class="contact-item-title">Delivery Coverage</div>
+            <div class="contact-item-value">All UAE</div>
+            <div class="contact-item-sub">Dubai · Abu Dhabi · Sharjah · All Emirates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone / WhatsApp</label>
+          <input type="tel" class="form-input" placeholder="+971 __ ___ ____">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Vehicle of Interest</label>
+        <select class="form-select">
+          <option value="">Select a vehicle...</option>
+          <option>Lamborghini Huracán EVO — AED 2,800/day</option>
+          <option>Lamborghini Urus S — AED 2,900/day</option>
+          <option>Ferrari F8 Tributo — AED 3,200/day</option>
+          <option>Ferrari Portofino M — AED 2,400/day</option>
+          <option>McLaren 720S — AED 2,500/day</option>
+          <option>Rolls-Royce Ghost — AED 4,500/day</option>
+          <option>Rolls-Royce Dawn — AED 5,500/day</option>
+          <option>Mercedes-Maybach S680 — AED 3,500/day</option>
+          <option>Bentley Flying Spur — AED 3,800/day</option>
+          <option>Range Rover Autobiography — AED 2,200/day</option>
+          <option>Mercedes-AMG G63 — AED 1,800/day</option>
+          <option>Porsche 911 Turbo S — AED 2,000/day</option>
+          <option>Chauffeur Service</option>
+          <option>Airport Transfer</option>
+          <option>Corporate Fleet</option>
+          <option>Wedding / Event Package</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Rental Start Date</label>
+          <input type="date" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Rental End Date</label>
+          <input type="date" class="form-input">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Special Requests</label>
+        <textarea class="form-textarea" placeholder="Delivery location, special requirements, or any questions..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit(event)">Send Reservation Request</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg viewBox="0 0 80 80" style="width:44px;height:44px;">
+          <defs>
+            <linearGradient id="fGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#E8C97A"/>
+              <stop offset="100%" style="stop-color:#8B6914"/>
+            </linearGradient>
+          </defs>
+          <circle cx="40" cy="40" r="38" fill="none" stroke="url(#fGold)" stroke-width="1.5"/>
+          <path d="M40 8 L62 22 L62 52 Q62 70 40 76 Q18 70 18 52 L18 22 Z" fill="none" stroke="url(#fGold)" stroke-width="1"/>
+          <text x="40" y="54" font-family="Georgia,serif" font-size="28" fill="url(#fGold)" text-anchor="middle" font-weight="bold">GM</text>
+        </svg>
+        <div class="footer-logo-text">
+          <div class="brand">GENTRY MOTORS</div>
+          <div class="sub">Luxury · Prestige · Excellence</div>
+        </div>
+      </div>
+      <p class="footer-desc">A premium automotive and mobility brand dedicated to delivering luxury, excellence, prestige, comfort, and exceptional customer experiences across the United Arab Emirates.</p>
+      <p class="footer-desc" style="font-size:10px; margin-top:8px;">"Driven by Prestige. Defined by Excellence."</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Our Fleet</div>
+      <ul class="footer-links">
+        <li><a href="#fleet" onclick="filterCars('exotic', null)">Exotic & Supercars</a></li>
+        <li><a href="#fleet" onclick="filterCars('suv', null)">Executive SUVs</a></li>
+        <li><a href="#fleet" onclick="filterCars('sedan', null)">Luxury Sedans</a></li>
+        <li><a href="#fleet" onclick="filterCars('convertible', null)">Convertibles</a></li>
+        <li><a href="#fleet">Full Fleet Catalog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Airport Transfers</a></li>
+        <li><a href="#services">Chauffeur Service</a></li>
+        <li><a href="#services">Corporate Fleet</a></li>
+        <li><a href="#services">Wedding Cars</a></li>
+        <li><a href="#services">VIP Concierge</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:+971500000000">+971 50 000 0000</a></li>
+        <li><a href="mailto:vip@gentrymotors.ae">vip@gentrymotors.ae</a></li>
+        <li><a href="mailto:bookings@gentrymotors.ae">bookings@gentrymotors.ae</a></li>
+        <li><a href="https://wa.me/971500000000">WhatsApp Us</a></li>
+        <li><a href="#">gentrymotors.ae</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© 2025 Gentry Motors. All rights reserved. · gentrymotors.ae · Dubai, UAE</div>
+    <div class="footer-dividers">
+      <span>Privacy Policy</span>
+      <span>·</span>
+      <span>Terms of Service</span>
+      <span>·</span>
+      <span>Rental Agreement</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/971500000000?text=Hello Gentry Motors! I'd like to book a luxury vehicle." class="whatsapp-float" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.487"/>
+  </svg>
+</a>
+
+<script>
+  // ── Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Fleet filter
+  function filterCars(cat, btn) {
+    // Update buttons
+    if (btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    // Filter cards
+    document.querySelectorAll('.car-card').forEach(card => {
+      const cardCat = card.dataset.cat;
+      const show = cat === 'all' || cardCat === cat;
+      card.style.display = show ? 'block' : 'none';
+    });
+  }
+
+  // ── Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.textContent = '✓ Request Sent! We\'ll contact you within minutes.';
+    btn.style.background = 'linear-gradient(135deg, #2d7a2d, #1a5c1a)';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Send Reservation Request';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 5000);
+  }
+
+  // ── Intersection observer for subtle fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.car-card, .service-card, .why-item, .booking-step, .testimonial-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
